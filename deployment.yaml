@@ -18,7 +18,7 @@ spec:
       - name: ibm-cloud-secret-2  # Use the secret generated
       containers:
       - name: flask-app
-        image: icr.io/my-ibm-python-app/flask-app:latest  # Use your image path
+        image: icr.io/my-ibm-python-app1/flask-app:latest  # Use your image path
         ports:
         - containerPort: 80
 ---
