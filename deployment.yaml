@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: flask-app-deployment
   labels:
-    app: flask-app1
+    app: flask-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-app1
+      app: flask-app
   template:
     metadata:
       labels:
-        app: flask-app1
+        app: flask-app
     spec:
       imagePullSecrets:
       - name: ibm-cloud-secret-2  # Use the secret generated
       containers:
-      - name: flask-app1
-        image: icr.io/my-ibm-python-app1/flask-app1:latest  # Use your image path
+      - name: flask-app
+        image: icr.io/my-ibm-python-app1/flask-app:latest  # Use your image path
         ports:
         - containerPort: 80
 ---
@@ -29,7 +29,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: flask-app1
+    app: flask-app
   ports:
   - port: 80
     targetPort: 80
