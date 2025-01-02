@@ -14,13 +14,14 @@ spec:
       labels:
         app: flask-app
     spec:
-      imagePullSecrets:
-      - name: ibm-cloud-secret
       containers:
       - name: flask-app
-        image: icr.io/my-python-app1/flask-app:latest
+        image: icr.io/my-python-app1/flask-app:latest # Update with your actual image path
         ports:
         - containerPort: 80
+      imagePullSecrets:
+      - name: ibm-cloud-secret-1 # Update with your secret name
+
 ---
 apiVersion: v1
 kind: Service
